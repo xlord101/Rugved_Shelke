@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Rugved S Shelke | Projects Showcase</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a60df2",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#05070A",
+                        "cyan-accent": "#00f2ff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .scanline {
+            width: 100%;
+            height: 2px;
+            z-index: 10;
+            background: rgba(166, 13, 242, 0.1);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .neural-bg {
+            background: radial-gradient(circle at 50% 50%, rgba(166, 13, 242, 0.15) 0%, transparent 70%);
+        }
+
+        .glass-panel {
+            background: rgba(13, 10, 20, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(166, 13, 242, 0.2);
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .fade-out-delay {
+            animation: fadeOut 2.5s ease-in-out forwards;
+        }
+
+        /* Animation on scroll reveal */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 overflow-x-hidden selection:bg-primary/30 selection:text-white">
+
+    <!-- Opening Animation Overlay -->
+    <div id="init-overlay"
+        class="fixed inset-0 z-[100] bg-background-dark flex flex-col items-center justify-center pointer-events-none fade-out-delay">
+        <div class="flex flex-col items-center gap-4">
+            <div
+                class="size-16 rounded-full border border-primary/30 flex items-center justify-center animate-[spin_3s_linear_infinite]">
+                <div
+                    class="size-12 rounded-full border border-cyan-accent/30 flex items-center justify-center animate-[spin_2s_linear_infinite_reverse]">
+                    <span class="material-symbols-outlined text-primary text-2xl animate-pulse">smart_toy</span>
+                </div>
+            </div>
+            <div class="text-primary font-mono text-xs uppercase tracking-[0.3em] animate-pulse">Initializing Projects
+                Module</div>
+        </div>
+    </div>
+
+    <div class="fixed inset-0 pointer-events-none z-50 opacity-[0.03] overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]">
+        </div>
+    </div>
+
+    <div class="relative flex min-h-screen w-full flex-col group/design-root">
+
+        <!-- Sticky Agentic Status Bar -->
+        <header
+            class="sticky top-0 z-40 w-full border-b border-primary/20 bg-background-dark/80 backdrop-blur-md px-6 py-3">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="size-8 bg-primary rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(166,13,242,0.5)]">
+                            <span class="material-symbols-outlined text-white text-xl">smart_toy</span>
+                        </div>
+                        <h2 class="text-white text-lg font-black tracking-tighter uppercase italic">Agentic.OS</h2>
+                    </div>
+                    <nav
+                        class="hidden md:flex items-center gap-6 font-mono text-[11px] tracking-widest uppercase text-slate-400">
+                        <a class="hover:text-primary transition-colors flex items-center gap-1" href="index.html"><span
+                                class="text-primary opacity-50">01.</span>Home</a>
+                        <a class="hover:text-primary transition-colors flex items-center gap-1"
+                            href="projects.html"><span class="text-primary opacity-50">02.</span>Projects</a>
+                        <a class="hover:text-primary transition-colors flex items-center gap-1"
+                            href="achievements.html"><span class="text-primary opacity-50">03.</span>Achievements</a>
+                    </nav>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div
+                        class="hidden lg:flex items-center gap-3 bg-slate-900/50 rounded-full px-4 py-1.5 border border-slate-800">
+                        <div class="flex items-center gap-2">
+                            <div class="size-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]"></div>
+                            <span class="text-[10px] font-mono text-slate-300 uppercase">Module: Active</span>
+                        </div>
+                    </div>
+                    <!-- Removed PFP, kept terminal button -->
+                    <button
+                        class="size-10 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                        <span class="material-symbols-outlined">terminal</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1">
+            <!-- Consistent Hero Section -->
+            <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden px-6 pt-20">
+                <div class="absolute inset-0 z-0 neural-bg">
+                    <div
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-20 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+                    </div>
+                    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-accent/10 rounded-full blur-[150px]">
+                    </div>
+                </div>
+
+                <div class="relative z-10 max-w-5xl w-full text-center">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-[10px] font-mono uppercase tracking-[0.2em] mb-8">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        System Diagnostics // Projects
+                    </div>
+                    <h1
+                        class="text-white text-5xl md:text-7xl font-black leading-[0.9] tracking-tighter mb-8 uppercase italic">
+                        Project <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-accent">Showcase</span>
+                    </h1>
+                    <p class="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed mb-12">
+                        Deployed autonomous architectures, large language models, and neural knowledge systems.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Project Grid (Content from original page) -->
+            <section class="py-12 px-6 relative">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                    <!-- Project 1 -->
+                    <div class="glass-panel rounded-3xl p-8 flex flex-col gap-6 relative overflow-hidden group hover:border-primary/50 transition-all duration-500 reveal-on-scroll"
+                        style="transition-delay: 0s">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                            <span class="material-symbols-outlined text-6xl">precision_manufacturing</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 text-primary mb-2">
+                                <span class="text-[10px] uppercase font-bold tracking-widest font-mono">System ID:
+                                    0x82A</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Autonomous Task Architect</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Orchestrates complex multi-step workflows using recursive feedback loops and dynamic tool
+                            selection.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="space-y-1">
+                                <div class="flex justify-between text-xs font-mono">
+                                    <span class="text-white">Efficiency</span>
+                                    <span class="text-primary">94%</span>
+                                </div>
+                                <div class="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 94%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-auto pt-6 border-t border-white/5 flex gap-3">
+                            <button
+                                class="flex-1 flex items-center justify-center gap-2 py-2.5 bg-primary/10 border border-primary/30 text-primary hover:bg-primary hover:text-white transition-all rounded-lg text-sm font-bold uppercase tracking-wider">
+                                Source Code
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="glass-panel rounded-3xl p-8 flex flex-col gap-6 relative overflow-hidden group hover:border-cyan-accent/50 transition-all duration-500 reveal-on-scroll"
+                        style="transition-delay: 0.1s">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                            <span class="material-symbols-outlined text-6xl">groups_3</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 text-cyan-accent mb-2">
+                                <span class="text-[10px] uppercase font-bold tracking-widest font-mono">System ID:
+                                    0x44F</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Multi-Agent Debate</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            A collaborative environment where multiple specialized LLM agents critique and refine each
+                            other's outputs.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="space-y-1">
+                                <div class="flex justify-between text-xs font-mono">
+                                    <span class="text-white">Consensus Rate</span>
+                                    <span class="text-primary">92%</span>
+                                </div>
+                                <div class="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-cyan-accent rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-auto pt-6 border-t border-white/5 flex gap-3">
+                            <button
+                                class="flex-1 flex items-center justify-center gap-2 py-2.5 bg-cyan-accent/10 border border-cyan-accent/30 text-cyan-accent hover:bg-cyan-accent hover:text-black transition-all rounded-lg text-sm font-bold uppercase tracking-wider">
+                                Source Code
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="glass-panel rounded-3xl p-8 flex flex-col gap-6 relative overflow-hidden group hover:border-primary/50 transition-all duration-500 reveal-on-scroll"
+                        style="transition-delay: 0.2s">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                            <span class="material-symbols-outlined text-6xl">account_tree</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 text-primary mb-2">
+                                <span class="text-[10px] uppercase font-bold tracking-widest font-mono">System ID:
+                                    0x911</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Generative Knowledge Graph</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Maps unstructured text into structured graph nodes with real-time entity relation
+                            extraction.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="space-y-1">
+                                <div class="flex justify-between text-xs font-mono">
+                                    <span class="text-white">Retrieval Precision</span>
+                                    <span class="text-primary">97%</span>
+                                </div>
+                                <div class="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 97%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-auto pt-6 border-t border-white/5 flex gap-3">
+                            <button
+                                class="flex-1 flex items-center justify-center gap-2 py-2.5 bg-primary/10 border border-primary/30 text-primary hover:bg-primary hover:text-white transition-all rounded-lg text-sm font-bold uppercase tracking-wider">
+                                Source Code
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Unified Footer -->
+        <footer class="bg-background-dark border-t border-white/5 py-12 px-6">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="flex items-center gap-3">
+                    <div class="size-6 bg-primary/20 border border-primary/50 rounded flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-xs">terminal</span>
+                    </div>
+                    <span class="text-[11px] font-mono text-slate-500 uppercase tracking-widest">© 2024
+                        AGENTIC_CORE_SYSTEMS V1.0.4</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a class="text-slate-400 hover:text-white transition-colors" href="#"><span
+                            class="material-symbols-outlined">alternate_email</span></a>
+                    <a class="text-slate-400 hover:text-white transition-colors font-mono text-[10px] uppercase border border-white/10 px-3 py-1 rounded-full"
+                        href="https://github.com/xlord101">GitHub</a>
+                    <a class="text-slate-400 hover:text-white transition-colors font-mono text-[10px] uppercase border border-white/10 px-3 py-1 rounded-full"
+                        href="#">ArXiv</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // Intersection Observer for reveal on scroll animations
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
